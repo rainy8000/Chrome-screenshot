@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>网页长截图</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 15px;
+      font-family: 'Microsoft YaHei', Arial, sans-serif;
+    }
+    h1 {
+      font-size: 18px;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+    button {
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #3367d6;
+    }
+    button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+    .options {
+      margin-top: 15px;
+      border-top: 1px solid #eee;
+      padding-top: 15px;
+    }
+    .option-item {
+      margin-bottom: 10px;
+    }
+    .status {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #666;
+    }
+    .loading {
+      display: none;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .loading-spinner {
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #3498db;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <h1>网页长截图工具</h1>
+  
+  <div class="button-container">
+    <button id="captureBtn">截取整页图片</button>
+  </div>
+  
+  <div class="status" id="status">点击按钮开始截图</div>
+  
+  <div class="loading" id="loading">
+    <div class="loading-spinner"></div>
+    <div>正在处理中...</div>
+  </div>
+  
+  <div class="options">
+    <div class="option-item">
+      <label>
+        <input type="checkbox" id="autoSave" checked>
+        自动保存截图
+      </label>
+    </div>
+    <div class="option-item">
+      <label>图片格式：</label>
+      <select id="imageFormat">
+        <option value="png">PNG</option>
+        <option value="jpeg">JPEG</option>
+      </select>
+    </div>
+    <div class="option-item">
+      <label>图片质量：</label>
+      <input type="range" id="imageQuality" min="1" max="10" value="8">
+      <span id="qualityValue">8</span>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
